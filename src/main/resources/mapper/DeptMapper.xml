@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 该配置命名空间 -->
+<mapper namespace="com.whsoftinc.datasource.mapper.DeptMapper">
+
+    <select id="queryDept" resultType="java.util.HashMap" parameterType="java.lang.String">
+        SELECT
+          dept_no, avg_sal, create_date, d_name, loc
+        FROM dept
+        WHERE dept_no = ${deptNo}
+    </select>
+
+</mapper>

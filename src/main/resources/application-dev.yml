@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    # 动态数据源配置
+    dynamic:
+      primary: master
+      druid: #以下是全局默认值，可以全局更改
+        initial-size: 0
+        max-active: 8
+        min-idle: 2
+        max-wait: -1
+        min-evictable-idle-time-millis: 30000
+        max-evictable-idle-time-millis: 30000
+        time-between-eviction-runs-millis: 0
+        validation-query: select 1
+        validation-query-timeout: -1
+        test-on-borrow: false
+        test-on-return: false
+        test-while-idle: true
+        pool-prepared-statements: true
+        max-open-prepared-statements: 100
+        filters: stat,wall
+        share-prepared-statements: true
+      # 配置需要的数据源
+      datasource:
+        # master为默认的数据源
+        master:
+          username: root
+          password: root
+          url: jdbc:mysql://127.0.0.1:3306/wh?@useUnicode=true&characterEncoding=UTF-8
+          driver-class-name: com.mysql.jdbc.Driver
+          druid:
+            initial-size: 5
+        test:
+          username: root
+          password: root
+          url: jdbc:mysql://127.0.0.1:3306/test?@useUnicode=true&characterEncoding=UTF-8
+          driver-class-name: com.mysql.jdbc.Driver
+          druid:
+            initial-size: 6
